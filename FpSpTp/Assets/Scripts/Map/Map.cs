@@ -15,7 +15,8 @@ public class Map : MonoBehaviour
                 Vector3 pos = new Vector3((i  - n / 2) * 0.16f, (j - m/ 2) * 0.16f, 0);
                 _map[i, j] = Instantiate(cell, pos, Quaternion.identity, transform) as GameObject;
                 _map[i, j].transform.SetParent(transform, false);
-                _map[i, j].GetComponent<Cell>().Init(pos, CellType.Grass);
+                CellType type = (i % 2 != 0 ? CellType.Grass : CellType.Water);
+                _map[i, j].GetComponent<Cell>().Init(pos, type);
             }
         }
     }
