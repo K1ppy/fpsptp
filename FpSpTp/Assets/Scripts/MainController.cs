@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MainController : MonoBehaviour
 {
+    public GameObject camera;
+
     public int n = 1;
     public int m = 1;
     public GameObject Map;
@@ -16,6 +18,8 @@ public class MainController : MonoBehaviour
 
         _map = Instantiate(Map, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
         _map.GetComponent<Map>().Init(n, m);
+
+        camera.GetComponent<CameraController>().SetCharacter(_character);
     }
 
     void Update()
