@@ -35,7 +35,6 @@ public class Person : MonoBehaviour
         _energy -= _energy_waste_per_action;
         if(_energy <= 0) {
             Rest();
-            _energyBar.SetEnergy(0);
         } else {
             _energyBar.SetEnergy(_energy);
         }
