@@ -55,7 +55,7 @@ public class Person : MonoBehaviour
             _position.x += dx;
             _position.y += dy;
             transform.position = new Vector3(transform.position.x + dx * 0.16f, transform.position.y + dy * 0.16f);
-            //LoseEnergy();
+            LoseEnergy();
         }
         else
         {
@@ -96,7 +96,7 @@ public class Person : MonoBehaviour
         return _energy;
     }
 
-    public void SetEnergy(int newenergy)
+    public void SetNewEnergy(int newenergy)
     {
         _energy = newenergy;
         _energyBar.SetMaxEnergy(newenergy);
