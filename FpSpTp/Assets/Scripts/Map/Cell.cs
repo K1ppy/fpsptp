@@ -22,6 +22,10 @@ public class Cell : MonoBehaviour
                 _cellObject = Instantiate(grass, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
                 _cellObject.transform.SetParent(transform, false);
                 break;
+            case CellType.Water:
+                _cellObject = Instantiate(water, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+                _cellObject.transform.SetParent(transform, false);
+                break;
             default:
                 break;
 
@@ -39,6 +43,7 @@ public class Cell : MonoBehaviour
     }
 
     public GameObject grass;
+    public GameObject water;
 
     private GameObject _cellObject;
     private CellType _type;
