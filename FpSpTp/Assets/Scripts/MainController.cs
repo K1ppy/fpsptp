@@ -13,35 +13,57 @@ public class MainController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _character = Instantiate(Character, new Vector3(50 * 0.16f, 50 * 0.16f, 0), Quaternion.identity) as GameObject;
-        _character.GetComponent<Person>().Init(n / 2, m / 2, 0);
+        _character = new GameObject[10];
+        mainCharacter = 0;
+        for (int i = 0; i < 3; i++)
+        {
+            _character[i] = Instantiate(Character, new Vector3((50 + i * 2) * 0.16f, (50 - i * 3) * 0.16f, 0), Quaternion.identity) as GameObject;
+            _character[i].GetComponent<Person>().Init(50 + i * 2, 50 - i * 3, 0);
+        }
+
 
         _map = Instantiate(Map, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
         _map.GetComponent<Map>().Init(n, m);
 
-        camera.GetComponent<CameraController>().SetCharacter(_character);
+        camera.GetComponent<CameraController>().SetCharacter(_character[mainCharacter]);
     }
 
     void Update()
     {
         if ((Input.GetKeyDown(KeyCode.W))) {
-            MoveCharacter(_character, 0, 1);
+            MoveCharacter(_character[mainCharacter], 0, 1);
         }
         if ((Input.GetKeyDown(KeyCode.S)))
         {
-            MoveCharacter(_character, 0, -1);
+            MoveCharacter(_character[mainCharacter], 0, -1);
         }
         if ((Input.GetKeyDown(KeyCode.A)))
         {
-            MoveCharacter(_character, -1, 0);
+            MoveCharacter(_character[mainCharacter], -1, 0);
         }
         if ((Input.GetKeyDown(KeyCode.D)))
         {
-            MoveCharacter(_character, 1, 0);
+            MoveCharacter(_character[mainCharacter], 1, 0);
         }
         if ((Input.GetKeyDown(KeyCode.E)))
         {
-            InteractionCharacter(_character);
+            InteractionCharacter(_character[mainCharacter]);
+        }
+
+        if ((Input.GetKeyDown(KeyCode.Alpha1)))
+        {
+            mainCharacter = 0;
+            camera.GetComponent<CameraController>().SetCharacter(_character[mainCharacter]);
+        }
+        if ((Input.GetKeyDown(KeyCode.Alpha2)))
+        {
+            mainCharacter = 1;
+            camera.GetComponent<CameraController>().SetCharacter(_character[mainCharacter]);
+        }
+        if ((Input.GetKeyDown(KeyCode.Alpha3)))
+        {
+            mainCharacter = 2;
+            camera.GetComponent<CameraController>().SetCharacter(_character[mainCharacter]);
         }
     }
 
@@ -71,6 +93,8 @@ public class MainController : MonoBehaviour
         
     }
 
+
+    int mainCharacter;
     private GameObject _map;
-    private GameObject _character;
+    private GameObject[] _character;
 }
