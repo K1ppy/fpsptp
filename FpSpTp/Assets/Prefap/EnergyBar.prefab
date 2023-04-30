@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8942969012130151438}
   - component: {fileID: 8942969012130151433}
+  - component: {fileID: 4337831202030883380}
   m_Layer: 5
   m_Name: EnergyBar
   m_TagString: Untagged
@@ -90,6 +91,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4337831202030883380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8942969012130151439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a427a02c96fcca1bd9b6fe1c0918aa38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 8942969012130151433}
 --- !u!1 &8942969012701086518
 GameObject:
   m_ObjectHideFlags: 0
