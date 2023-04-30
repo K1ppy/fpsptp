@@ -12,13 +12,40 @@ public class Person : Object
 
     public void Init()
     {
+        _type = ObjectType.PERSON;
+        GetComponent<SpriteRenderer>().sprite = downArt;
         _position = new Vector3(0, 0, 0);
         _affection = _start_affection;
     }
 
+    public void Move(float dx, float dy)
+    {
+        _position.x += dx;
+        _position.y += dy;
+        transform.position = _position;
+        UpdateArt(dx, dy);
+    }
 
+    private void UpdateArt(float dx, float dy)
+    {
+        if (dx > 0) {
+            GetComponent<SpriteRenderer>().sprite = rightArt;
+        }
+        if (dx < 0)
+        {
+            GetComponent<SpriteRenderer>().sprite = leftArt;
+        }
+        if (dy > 0) {
+            GetComponent<SpriteRenderer>().sprite = upArt;
+        }
+        if (dy < 0)
+        {
+            GetComponent<SpriteRenderer>().sprite = downArt;
+        }
+     
+    }
 
-    public void Init(int x, int y, int z)
+    public void Init(float x, float y, float z)
     {
         _position = new Vector3(x, y, z);
         _affection = _start_affection;
@@ -48,9 +75,10 @@ public class Person : Object
         Init();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        LoseAffection();    
-    }
+ 
+    public Sprite leftArt;
+    public Sprite rightArt;
+    public Sprite upArt;
+    public Sprite downArt;
+
 }
