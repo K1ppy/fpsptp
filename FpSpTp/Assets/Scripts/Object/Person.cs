@@ -23,12 +23,18 @@ public class Person : MonoBehaviour
         _position = new Vector3(x, y, z);
         _affection = _start_affection;
         _energy = _start_energy;
+        _energyBar.SetMaxEnergy(_energy);
     }
 
     public void LoseEnergy()
     {
         _energy -= _energy_waste_per_action;
-        if(_energy <= 0) Rest();
+        if(_energy <= 0) {
+            Rest();
+            _energyBar.SetEnergy(0);
+        } else {
+            _energyBar.SetEnergy(_energy);
+        }
     }
 
     public void Move(float dx, float dy)
@@ -100,6 +106,7 @@ public class Person : MonoBehaviour
         if (_affection <= 0) LosePerson();
     }
 
+    public EnergyBar _energyBar;
     public Sprite leftArt;
     public Sprite rightArt;
     public Sprite upArt;
