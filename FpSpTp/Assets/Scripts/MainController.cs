@@ -6,23 +6,12 @@ public class MainController : MonoBehaviour
 {
     public int n = 1;
     public int m = 1;
-    public GameObject grass;
+    public GameObject Map;
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < m; j++)
-            {
-                Vector3 pos;
-                pos.x = i - n / 2;
-                pos.y = j - m / 2;
-                pos.z = 0;
-             
-                
-                Instantiate(grass, pos, Quaternion.identity, transform);
-            }
-        }
+        _map = Instantiate(Map, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
+        _map.GetComponent<Map>().Init(n, m);
     }
 
     // Update is called once per frame
@@ -30,4 +19,6 @@ public class MainController : MonoBehaviour
     {
         
     }
+
+    private GameObject _map;
 }
