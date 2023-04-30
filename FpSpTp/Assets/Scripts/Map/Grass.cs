@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class Grass : MonoBehaviour
 {
-
-    public GameObject[] grass;
-    // Start is called before the first frame update
-    void Start()
+    public Sprite[] grass;
+  
+    private void Start()
     {
-        for (int i = 0; i < grass.Length; i++) {
-            grass[i].SetActive(false);
+
+        if (Random.Range(0, 10) < 7) {
+            GetComponent<SpriteRenderer>().sprite = grass[Random.Range(3, 6)];
+        } else
+        {
+            GetComponent<SpriteRenderer>().sprite = grass[Random.Range(0, 3)];
         }
-        var element = grass[Random.Range(0, grass.Length)];
-        element.SetActive(true);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
