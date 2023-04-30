@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if (_character.transform)
+        if (_character &&  _character.transform)
         {
             Vector3 target = new Vector3()
             {

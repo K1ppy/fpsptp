@@ -47,3 +47,4 @@ MonoBehaviour:
   cell: {fileID: 2298956094026702597, guid: 68579c047dc58f14fb813fa6645d0653, type: 3}
   tree: {fileID: 1155764443189563755, guid: e1550c45ce41ed34595266800b400555, type: 3}
   empty: {fileID: 4989938223165743411, guid: 8376d7a6feb7efc44a96329bd92a42dd, type: 3}
+  stone: {fileID: 3514525070542861046, guid: e8e61af179b4305fcbaca853c2ce671c, type: 3}
