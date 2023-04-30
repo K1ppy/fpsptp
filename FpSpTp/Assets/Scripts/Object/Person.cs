@@ -4,26 +4,24 @@ using UnityEngine;
 
 
 
-public class Person : Object
+public class Person : MonoBehaviour
 {
     private int _affection; // if affection = 0, person is disappear
     private int _start_affection = 50;
     private int _lose_affection_per_time = 1;
-
-    public void Init()
-    {
-        _type = ObjectType.PERSON;
-        GetComponent<SpriteRenderer>().sprite = downArt;
-        _position = new Vector3(0, 0, 0);
-        _affection = _start_affection;
-    }
+    private Vector3 _position;
 
     public void Move(float dx, float dy)
     {
         _position.x += dx;
         _position.y += dy;
-        transform.position = _position;
+        transform.position = new Vector3(transform.position.x + dx * 0.16f, transform.position.y + dy * 0.16f);
         UpdateArt(dx, dy);
+    }
+
+    public Vector3 GetPosition()
+    {
+        return _position;
     }
 
     private void UpdateArt(float dx, float dy)
@@ -47,6 +45,7 @@ public class Person : Object
 
     public void Init(float x, float y, float z)
     {
+        GetComponent<SpriteRenderer>().sprite = downArt;
         _position = new Vector3(x, y, z);
         _affection = _start_affection;
     }
@@ -69,13 +68,6 @@ public class Person : Object
         if (_affection <= 0) LosePerson();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Init();
-    }
-
- 
     public Sprite leftArt;
     public Sprite rightArt;
     public Sprite upArt;

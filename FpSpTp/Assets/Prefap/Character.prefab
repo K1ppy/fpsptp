@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3326d2aaed1d2044a893321e1fb7a5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _type: 1
   leftArt: {fileID: 1707737163, guid: 410952a8ed3c6f042abc360812a3d00c, type: 3}
   rightArt: {fileID: 1710987835, guid: 410952a8ed3c6f042abc360812a3d00c, type: 3}
   upArt: {fileID: -1602890311, guid: 410952a8ed3c6f042abc360812a3d00c, type: 3}

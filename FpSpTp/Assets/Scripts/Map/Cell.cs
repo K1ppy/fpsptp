@@ -28,6 +28,16 @@ public class Cell : MonoBehaviour
         }
     }
 
+    public bool IsPassability()
+    {
+    
+        if (_type == CellType.Water)
+        {
+            return false;
+        }
+        return true;
+    }
+
     public GameObject grass;
 
     private GameObject _cellObject;

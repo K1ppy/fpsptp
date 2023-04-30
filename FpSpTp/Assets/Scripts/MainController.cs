@@ -11,32 +11,41 @@ public class MainController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _character = Instantiate(Character, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
-        _character.GetComponent<Person>().Init(0, 0, 0);
+        _character = Instantiate(Character, new Vector3(50 * 0.16f, 50 * 0.16f, 0), Quaternion.identity) as GameObject;
+        _character.GetComponent<Person>().Init(n / 2, m / 2, 0);
 
         _map = Instantiate(Map, new Vector3(0, 0, 0), Quaternion.identity) as GameObject;
         _map.GetComponent<Map>().Init(n, m);
     }
 
-    
-    private bool isRunning = false;
-
     void Update()
     {
         if ((Input.GetKeyDown(KeyCode.W))) {
-            _character.GetComponent<Person>().Move(0.0f, 0.16f);
+            MoveCharacter(_character, 0, 1);
         }
         if ((Input.GetKeyDown(KeyCode.S)))
         {
-            _character.GetComponent<Person>().Move(0.0f, -0.16f);
+            MoveCharacter(_character, 0, -1);
         }
         if ((Input.GetKeyDown(KeyCode.A)))
         {
-            _character.GetComponent<Person>().Move(-0.16f, 0.0f);
+            MoveCharacter(_character, -1, 0);
         }
         if ((Input.GetKeyDown(KeyCode.D)))
         {
-            _character.GetComponent<Person>().Move(0.16f, 0.0f);
+            MoveCharacter(_character, 1, 0);
+        }
+    }
+
+    private void MoveCharacter(GameObject character, int dx, int dy)
+    {
+        Vector3 newPos = character.GetComponent<Person>().GetPosition();
+        newPos.x += dx;
+        newPos.y += dy;
+
+        if (_map.GetComponent<Map>().IsPassability((int)newPos.x, (int)newPos.y))
+        {
+            character.GetComponent<Person>().Move(dx, dy);
         }
     }
 
