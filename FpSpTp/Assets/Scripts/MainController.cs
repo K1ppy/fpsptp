@@ -43,10 +43,9 @@ public class MainController : MonoBehaviour
         newPos.x += dx;
         newPos.y += dy;
 
-        if (_map.GetComponent<Map>().IsPassability((int)newPos.x, (int)newPos.y))
-        {
-            character.GetComponent<Person>().Move(dx, dy);
-        }
+        bool fMove = _map.GetComponent<Map>().IsPassability((int)newPos.x, (int)newPos.y);
+        character.GetComponent<Person>().Move(dx, dy, fMove);
+        
     }
 
     private GameObject _map;

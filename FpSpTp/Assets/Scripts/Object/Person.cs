@@ -31,14 +31,19 @@ public class Person : MonoBehaviour
         if(_energy <= 0) Rest();
     }
 
-    public void Move(float dx, float dy)
+    public void Move(float dx, float dy, bool fMove)
     {
+        UpdateArt(dx, dy);
+        if (!fMove)
+        {
+            return;
+        }
+
         if (_energy >= _energy_waste_per_action)
         {
             _position.x += dx;
             _position.y += dy;
             transform.position = new Vector3(transform.position.x + dx * 0.16f, transform.position.y + dy * 0.16f);
-            UpdateArt(dx, dy);
             LoseEnergy();
         }
         else
