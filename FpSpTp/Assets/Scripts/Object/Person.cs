@@ -16,11 +16,15 @@ public class Person : MonoBehaviour
     private int _lose_affection_per_time = 1;
     private Vector3 _position;
 
-  
+    private Vector3 _direction;
+
+
+
     public void Init(float x, float y, float z)
     {
         GetComponent<SpriteRenderer>().sprite = downArt;
         _position = new Vector3(x, y, z);
+        _direction = new Vector3(0, -1, 0);
         _affection = _start_affection;
         _energy = _start_energy;
     }
@@ -34,6 +38,7 @@ public class Person : MonoBehaviour
     public void Move(float dx, float dy, bool fMove)
     {
         UpdateArt(dx, dy);
+        _direction = new Vector3(dx, dy, 0);
         if (!fMove)
         {
             return;
@@ -50,6 +55,11 @@ public class Person : MonoBehaviour
         {
             Rest();
         }
+    }
+
+    public Vector3 GetDirection()
+    {
+        return _direction;
     }
 
     public Vector3 GetPosition()

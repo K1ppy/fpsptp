@@ -42,6 +42,18 @@ public class Map : MonoBehaviour
         return _map[x, y].GetComponent<Cell>().IsPassability();
     }
 
+
+    public GameObject GetObject(int x, int y) {
+        return _objects[x, y];
+    }
+
+    public void Destroy(int x, int y)
+    {
+        Destroy(_objects[x, y]);
+        _objects[x, y] = Instantiate(empty, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
+        _objects[x, y].transform.SetParent(transform, false);
+    }
+
     public GameObject cell;
 
     public GameObject tree;

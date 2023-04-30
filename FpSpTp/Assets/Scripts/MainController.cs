@@ -35,6 +35,25 @@ public class MainController : MonoBehaviour
         {
             MoveCharacter(_character, 1, 0);
         }
+        if ((Input.GetKeyDown(KeyCode.E)))
+        {
+            InteractionCharacter(_character);
+        }
+    }
+
+    private void InteractionCharacter(GameObject character)
+    {
+        Vector3 direction = character.GetComponent<Person>().GetDirection();
+        Vector3 newPos = character.GetComponent<Person>().GetPosition();
+        newPos += direction;
+        
+
+        GameObject mapObject = _map.GetComponent<Map>().GetObject((int)newPos.x, (int)newPos.y);
+
+        if(mapObject.GetComponent<Object>().GetObjectType() == ObjectType.TREE)
+        {
+            _map.GetComponent<Map>().Destroy((int)newPos.x, (int)newPos.y);
+        }
     }
 
     private void MoveCharacter(GameObject character, int dx, int dy)
