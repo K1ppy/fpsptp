@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3326d2aaed1d2044a893321e1fb7a5fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _energyBar: {fileID: 4337831202030883380, guid: 6d0a0b1b3762fdd8e834c7a64b45ef78, type: 3}
+  _energyBar: {fileID: 8783651304654613365, guid: cc49e27ac13a816f7b7f593b26b17342, type: 3}
   leftArt: {fileID: 1707737163, guid: 410952a8ed3c6f042abc360812a3d00c, type: 3}
   rightArt: {fileID: 1710987835, guid: 410952a8ed3c6f042abc360812a3d00c, type: 3}
   upArt: {fileID: -1602890311, guid: 410952a8ed3c6f042abc360812a3d00c, type: 3}

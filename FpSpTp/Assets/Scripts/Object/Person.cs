@@ -27,7 +27,7 @@ public class Person : MonoBehaviour
         _direction = new Vector3(0, -1, 0);
         _affection = _start_affection;
         _energy = _start_energy;
-        _energyBar.SetMaxEnergy(_energy);
+        _energyBar.SetMaxEnergy(_start_energy);
     }
 
     public void LoseEnergy()
@@ -96,7 +96,11 @@ public class Person : MonoBehaviour
         return _energy;
     }
 
-    public void SetEnergy(int newenergy) => _energy = newenergy; 
+    public void SetEnergy(int newenergy)
+    {
+        _energy = newenergy;
+        _energyBar.SetMaxEnergy(newenergy);
+    }
 
     public int GetAffection()
     {

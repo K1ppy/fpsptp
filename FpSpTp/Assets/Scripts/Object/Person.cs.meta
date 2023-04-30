@@ -3,7 +3,12 @@ guid: 3326d2aaed1d2044a893321e1fb7a5fa
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _energyBar: {fileID: 8783651304654613365, guid: cc49e27ac13a816f7b7f593b26b17342, type: 3}
+  - leftArt: {instanceID: 0}
+  - rightArt: {instanceID: 0}
+  - upArt: {instanceID: 0}
+  - downArt: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
